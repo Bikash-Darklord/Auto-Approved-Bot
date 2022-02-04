@@ -3,7 +3,7 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, Message, User, ChatJoinRequest
 
 pr0fess0r_99=Client(
-    "Auto Approved Bot",
+    "Auto Approved V2 Bot",
     bot_token = os.environ["BOT_TOKEN"],
     api_id = int(os.environ["API_ID"]),
     api_hash = os.environ["API_HASH"]
@@ -17,12 +17,12 @@ APPROVED = os.environ.get("APPROVED_WELCOME", "on").lower()
 async def start(client: pr0fess0r_99, message: Message):
     approvedbot = await client.get_me() 
     button=[[
-      InlineKeyboardButton("📦 Repo", url="https://github.com/PR0FESS0R-99/Auto-Approved-Bot"),
-      InlineKeyboardButton("Updates 📢", url="t.me/Mo_Tech_YT")
+      InlineKeyboardButton("📦 Repo", url="https://github.com/Bikash-Darklord/ApprovedV2-Bot"),
+      InlineKeyboardButton("Updates 📢", url="@hellodarklord")
       ],[
-      InlineKeyboardButton("➕️ Add Me To Your Chat ➕️", url=f"http://t.me/{approvedbot.username}?startgroup=botstart")
+      InlineKeyboardButton("➕️ Add Me To Your Group ➕️", url=f"http://t.me/{approvedbot.username}?startgroup=botstart")
       ]]
-    await message.reply_text(text="**__Hello Iam Auto Approved Join Request Bot Repo https://github.com/PR0FESS0R-99/Auto-Approved-Bot**__", reply_markup=InlineKeyboardMarkup(button), disable_web_page_preview=True)
+    await message.reply_text(text="**__👋Hello Iam Auto Approved Join Request Bot Repo https://github.com/Bikash-Darklord/Auto-ApprovedV2-Bot**__", reply_markup=InlineKeyboardMarkup(button), disable_web_page_preview=True)
 
 @pr0fess0r_99.on_chat_join_request(filters.chat(CHAT_ID))
 async def autoapprove(client: pr0fess0r_99, message: ChatJoinRequest):
@@ -34,5 +34,5 @@ async def autoapprove(client: pr0fess0r_99, message: ChatJoinRequest):
         await client.send_message(chat_id=chat.id, text=TEXT.format(mention=user.mention, title=chat.title))
         print("Welcome....")
 
-print("Auto Approved Bot")
+print("Approved V2 Bot")
 pr0fess0r_99.run()
